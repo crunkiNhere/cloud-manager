@@ -1,74 +1,70 @@
-# Cloud Manager
+# AI Workstation Setup
 
-A cloud-agnostic service for managing cloud resources across multiple providers (Azure, AWS, GCP).
+This project sets up an agentic AI workstation on Windows 11 (HP Victus) with n8n workflow automation.
 
-## Setup
+## System Requirements
+- Windows 11
+- HP Victus hardware
+- Python 3.11+
+- Node.js 18+
+- npm 9+
+- Git
+- VS Code or preferred IDE
 
-1. Create a virtual environment:
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
+## Setup Components
 
-2. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
+1. **Development Environment**
+   - Python virtual environment
+   - Git configuration
+   - VS Code extensions
+   - Development tools
 
-3. Configure environment variables:
-Create a `.env` file with your cloud provider credentials:
-```env
-# Azure
-AZURE_SUBSCRIPTION_ID=your_subscription_id
-AZURE_TENANT_ID=your_tenant_id
-AZURE_CLIENT_ID=your_client_id
-AZURE_CLIENT_SECRET=your_client_secret
+2. **AI Tools and Frameworks**
+   - Local LLM setup (Ollama)
+   - Python AI libraries
+   - Development frameworks
 
-# AWS
-AWS_ACCESS_KEY_ID=your_access_key
-AWS_SECRET_ACCESS_KEY=your_secret_key
-AWS_REGION=your_region
+3. **n8n Workflow Automation**
+   - Local n8n instance
+   - SQLite database
+   - Basic security configuration
 
-# GCP
-GOOGLE_APPLICATION_CREDENTIALS=path_to_your_credentials.json
-```
+4. **Workspace Configuration**
+   - Project structure
+   - Environment variables
+   - Development workflows
 
-## Usage
+## Getting Started
 
-```python
-from cloud_manager.azure_client import AzureClient
+1. Install prerequisites:
+   - Python 3.11 or later
+   - Node.js 18 or later
+   - Git
+   - VS Code
 
-# Initialize Azure client
-azure_client = AzureClient(subscription_id="your_subscription_id")
+2. Run setup scripts:
+   ```bash
+   # Setup Python environment
+   setup.bat
 
-# List VMs in a resource group
-vms = azure_client.list_virtual_machines("my-resource-group")
-for vm in vms:
-    print(f"VM: {vm.name}")
+   # Setup n8n
+   setup_n8n.bat
+   ```
 
-# Create a new resource group
-azure_client.create_resource_group("new-resource-group", "eastus")
-```
+3. Start n8n:
+   ```bash
+   n8n\start_n8n.bat
+   ```
+   Access n8n at: http://localhost:5678
 
-## Project Structure
+## Next Steps
 
-```
-cloud_manager/
-├── __init__.py
-├── azure_client.py      # Azure-specific implementation
-├── aws_client.py        # AWS-specific implementation (to be added)
-├── gcp_client.py        # GCP-specific implementation (to be added)
-└── cloud_interface.py   # Abstract base class for cloud providers
-```
+1. Configure n8n security settings
+2. Set up initial workflows
+3. Integrate with AI tools
 
-## Contributing
+## Security Notes
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
-
-## License
-
-MIT 
+- Change the default JWT secret in n8n/config.json
+- Use environment variables for sensitive data
+- Regularly backup n8n.db 
