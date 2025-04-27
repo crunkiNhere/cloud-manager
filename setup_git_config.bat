@@ -71,4 +71,11 @@ git config --global prune.force true
 echo Git configuration complete!
 echo Current configuration:
 git config --list
-pause 
+pause
+
+:: Enable WSL and Virtual Machine Platform
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+
+echo WSL and Virtual Machine Platform enabled. Please restart your computer.
+pause

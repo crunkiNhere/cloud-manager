@@ -8,13 +8,12 @@ if not "%CD%"=="C:\development" (
     exit /b 1
 )
 
-:: Setup Git global configuration
-echo Setting up Git global configuration...
-call setup_git_config.bat
-
-:: Run Git structure setup
-echo Setting up Git structure...
-call setup_git_structure.bat
+:: Create main directories
+echo Creating main directories...
+mkdir ai-workstation 2>nul
+mkdir n8n-workflows 2>nul
+mkdir projects 2>nul
+mkdir tools 2>nul
 
 :: Setup AI Workstation
 echo Setting up AI Workstation...
